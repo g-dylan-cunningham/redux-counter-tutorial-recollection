@@ -1,10 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Todo = ({ isComplete, text }) => {
     return (
-        <Fragment>
-            Todo
-        </Fragment>
+        <li
+            style={{
+                'textDecoration': 
+                    isComplete 
+                        ? 'line-through' 
+                        : ''
+            }}
+        >
+            {text}
+        </li>
     );
 }
 
