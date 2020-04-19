@@ -2,27 +2,9 @@ import { createStore } from 'redux';
 import { uuid } from 'uuidv4';
 import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './actions';
 
-const mockTodos = [
-    {
-        id: 0,
-        text: "test 1",
-        isComplete: false,
-    },
-    {
-        id: 1,
-        text: "test 2",
-        isComplete: true,
-    },
-    {
-        id: 2,
-        text: "test 2",
-        isComplete: false,
-    },
-  ]
-
 const initialState = {
     activeFilter: 'all',
-    todos: mockTodos,
+    todos: [],
 }
 
 const app = (state = initialState, action) => {
