@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../redux/actions';
 
-const TodoInput = ({ addTodo }) => {
+const TodoInput = ({ boundAddTodo }) => {
     const [text, setText] = useState('');
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        boundAddTodo(text);
+    }
+    
     return (
         <div>
             <input
@@ -13,10 +21,17 @@ const TodoInput = ({ addTodo }) => {
             <input  
                 type='submit'
                 value='add'
-                onClick={addTodo}
+                onClick={e => handleClick(e)}
             />
         </div>
     );
 }
 
-export default TodoInput;
+const mapDispatchToProps = dispatch => {
+
+    return {
+        boundAddTodo: (text) => dispatch(addTodo(text)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(TodoInput);

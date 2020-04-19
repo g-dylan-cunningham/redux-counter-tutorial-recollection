@@ -1,4 +1,6 @@
 import { createStore } from 'redux';
+import { uuid } from 'uuidv4';
+import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from './actions';
 
 const mockTodos = [
     {
@@ -24,6 +26,20 @@ const initialState = {
 
 const app = (state = initialState, action) => {
     switch (action.type) {
+
+        case ADD_TODO:
+            return {
+                ...state,
+                todos: [
+                    ...state.todos,
+                    {
+                        id: uuid(),
+                        text: action.text,
+                        isComplete: false,
+                    }
+                ]
+            }
+
         default:
         return state;
     }
