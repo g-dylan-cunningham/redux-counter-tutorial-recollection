@@ -1,33 +1,19 @@
 import React from 'react';
+import { store } from './redux';
+import { Provider } from 'react-redux';
 import Footer from './components/Footer';
-import Todo from './components/Todo';
 import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
-
-const mockTodos = [
-  {
-      id: 0,
-      text: "test 1",
-      isComplete: false,
-  },
-  {
-      id: 1,
-      text: "test 2",
-      isComplete: true,
-  },
-  {
-      id: 2,
-      text: "test 2",
-      isComplete: false,
-  },
-]
+import VisibleTodoList from './containers/VisibleTodoList';
 
 function App() {
+  console.log("store", store.getState())
   return (
     <div className="App">
-      <TodoInput />
-      <TodoList todos={mockTodos} />
-      <Footer /> 
+      <Provider store={store}>
+        <TodoInput />
+        <VisibleTodoList />
+        <Footer /> 
+      </Provider>
     </div>
   );
 }
