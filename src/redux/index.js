@@ -25,8 +25,26 @@ const initialState = {
 }
 
 const app = (state = initialState, action) => {
+    console.log("action at reducer", action)
     switch (action.type) {
 
+        case TOGGLE_TODO:
+
+            return {
+                ...state,
+                todos: state.todos.map(todo => {
+                    if(todo.id !== action.id) {
+                        return todo;
+                    } else {
+                        return {
+                            ...todo,
+                            isComplete: !todo.isComplete
+                        }
+                    }
+                })
+                
+            }
+        
         case ADD_TODO:
             return {
                 ...state,

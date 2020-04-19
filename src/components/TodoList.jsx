@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, toggleTodo }) => {
     return (
         <Fragment>
             <ul>
@@ -10,8 +10,10 @@ const TodoList = ({ todos }) => {
                         return (
                             <Todo
                                 key={todo.id}
+                                id={todo.id}
                                 text={todo.text}
                                 isComplete={todo.isComplete}
+                                clickHandler={toggleTodo}
                             />
                         )
                     })
