@@ -1,18 +1,12 @@
 import React from 'react';
-import Link from './Link';
+import FilterLink from '../../containers/FilterLink';
 
-const Footer = ({ activeFilter = 'active'}) => {
+const Footer = () => {
     return (
         <div>
-            <Link isActive={
-                activeFilter === 'all'
-            } >link 1</Link>
-            <Link isActive={
-                activeFilter === 'active'
-            } >link 2</Link>
-            <Link isActive={
-                activeFilter === 'completed'
-            } >link 3</Link>
+            <FilterLink>all</FilterLink>
+            <FilterLink>active</FilterLink>
+            <FilterLink>completed</FilterLink>
         </div>
     );
 }

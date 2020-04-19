@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-const Link = ({ isActive, children, handleLinkClick }) => {
+const Link = ({ activeFilter, children, handleLinkClick }) => {
+
+    const isActive = activeFilter === children;
     if(isActive) {
         return (
             <span>
@@ -11,12 +13,12 @@ const Link = ({ isActive, children, handleLinkClick }) => {
     }
     return (
         <span>
-            <a
-                onClick={handleLinkClick}    
+            <button
+                onClick={() => handleLinkClick(children)}    
                 href=""
             >
                 {children}
-            </a>
+            </button>
             {" "}
         </span>
     );

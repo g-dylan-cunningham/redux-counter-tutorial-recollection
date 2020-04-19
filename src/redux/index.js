@@ -21,6 +21,7 @@ const mockTodos = [
   ]
 
 const initialState = {
+    activeFilter: 'all',
     todos: mockTodos,
 }
 
@@ -56,6 +57,12 @@ const app = (state = initialState, action) => {
                         isComplete: false,
                     }
                 ]
+            }
+
+        case SET_VISIBILITY_FILTER:
+            return {
+                ...state,
+                activeFilter: action.selectedFilter
             }
 
         default:
