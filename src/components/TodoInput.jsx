@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 const TodoInput = ({ addTodo }) => {
     const [text, setText] = useState('');
     return (
-        <Fragment>
+        <div>
             <input
                 type='text'
                 placeholder='your next todo'
@@ -15,7 +15,7 @@ const TodoInput = ({ addTodo }) => {
                 value='add'
                 onClick={addTodo}
             />
-        </Fragment>
+        </div>
     );
 }
 

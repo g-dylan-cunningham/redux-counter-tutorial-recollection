@@ -1,12 +1,19 @@
 import React from 'react';
 import Link from './Link';
 
-const Footer = ({ filter, children }) => {
+const Footer = ({ activeFilter = 'active'}) => {
     return (
-        <React.Fragment>
-            Footer
-            <Link>link children</Link>
-        </React.Fragment>
+        <div>
+            <Link isActive={
+                activeFilter === 'all'
+            } >link 1</Link>
+            <Link isActive={
+                activeFilter === 'active'
+            } >link 2</Link>
+            <Link isActive={
+                activeFilter === 'completed'
+            } >link 3</Link>
+        </div>
     );
 }
 

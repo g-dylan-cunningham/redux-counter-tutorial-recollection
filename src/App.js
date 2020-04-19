@@ -9,8 +9,8 @@ function App() {
     <div className="App">
       <TodoInput />
       {/* <Todo />
-      <TodoList />
-      <Footer /> */}
+      <TodoList /> */}
+      <Footer /> 
     </div>
   );
 }

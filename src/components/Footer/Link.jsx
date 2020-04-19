@@ -1,10 +1,24 @@
 import React, { Fragment } from 'react';
 
-const Link = ({ active, children }) => {
+const Link = ({ isActive, children, handleLinkClick }) => {
+    if(isActive) {
+        return (
+            <span>
+                {children}
+            {" "}
+            </span>
+        )
+    }
     return (
-        <Fragment>
-            Link - {children}
-        </Fragment>
+        <span>
+            <a
+                onClick={handleLinkClick}    
+                href=""
+            >
+                {children}
+            </a>
+            {" "}
+        </span>
     );
 }
 
